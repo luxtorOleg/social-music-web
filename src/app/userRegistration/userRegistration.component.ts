@@ -21,21 +21,28 @@ export class UserRegistration{
     console.log(this.name);
 
     let headers = new Headers();
-    headers.append('Content-Type', 'application/json')
-    return this.http.put(
-      'http://localhost:3000/api/users/',
-      JSON.stringify({ name: this.name, password: this.password,email: this.email }),
-      new RequestOptions({ headers: headers }))
-      .map((response: Response) => {
-         //login successful if there's a jwt token in the response
-       //let user = response.json();
-        //if (user && user.token) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-        // localStorage.setItem('currentUser', JSON.stringify(user));
-       // }
-        console.log(response.json());
-        //return user;
-      });
+    headers.append('Content-Type', 'application/json');
+
+    let to_send = { name: this.name, password: this.password, email: this.email };
+
+    return this.http.put('http://localhost:3000/api/users/', JSON.stringify(to_send), new RequestOptions({ headers: headers }))
+      .map(response => {
+        let data = response.json(); //get actual response body from the response
+
+        if (data.result) {
+         alert('saved. your new id is: ' + data.result);
+         } else {
+         alert('error. message: ' + data.error.message);
+         }
+      })
+      .subscribe(
+        result => result, // return response to the chai call
+        error => {
+          if (error) {
+            console.log(error);
+          }
+        }
+      );
   }
 
 }
