@@ -4,6 +4,7 @@
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. Add component to `src/app/app.module.ts`
+<br />
 Run `ng generate service service-name` to generame a new service. Add it to `src/app/app.module.ts` as well
 ## Build and start
 
