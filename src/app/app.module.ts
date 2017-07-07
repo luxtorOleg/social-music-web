@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { UsersService } from './users.service';
+import {UserRegistration} from  './userRegistration/userRegistration.component';
+import {User} from './userRegistration/User';
 
 const ROUTES = [
   {
@@ -17,13 +19,18 @@ const ROUTES = [
   {
     path: 'users',
     component: UsersComponent
+  },
+  {
+    path: 'reg',
+    component: UserRegistration
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    UserRegistration
   ],
   imports: [
     BrowserModule,

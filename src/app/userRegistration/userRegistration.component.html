@@ -1,0 +1,8 @@
+<div>
+  <form (ngSubmit)="registration()">
+  <input type="text"  [(ngModel)]="name" name="nameUser" >
+  <input type="email" [(ngModel)]="email" name="emailUser" >
+  <input type="password"  [(ngModel)]="password" name="passwordUser" >
+  <button type="submit" value="Send">Send</button>
+  </form>
+</div>
